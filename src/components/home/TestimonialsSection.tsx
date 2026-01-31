@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
@@ -35,40 +35,48 @@ const testimonials = [
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
     feedback: "From IELTS preparation to visa interview coaching, every step was handled professionally. I highly recommend Pravaas to anyone planning to study abroad.",
   },
+  {
+    id: 5,
+    name: "Ananya Desai",
+    country: "Canada",
+    university: "University of Toronto",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
+    feedback: "The scholarship guidance from Pravaas saved me thousands of dollars. Their team knows exactly what universities look for in applications.",
+  },
+  {
+    id: 6,
+    name: "Vikram Singh",
+    country: "Germany",
+    university: "Technical University of Munich",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    feedback: "Studying in Germany seemed complicated, but Pravaas made it seamless. From language prep to blocked account setup, they handled everything!",
+  },
 ];
 
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
 
-  const nextTestimonial = () => {
-    setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  // Calculate max index for groups of 3
+  const itemsPerPage = 3;
+  const maxIndex = Math.ceil(testimonials.length / itemsPerPage) - 1;
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   };
 
-  const prevTestimonial = () => {
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   };
 
   useEffect(() => {
-    const timer = setInterval(nextTestimonial, 6000);
+    const timer = setInterval(nextSlide, 8000);
     return () => clearInterval(timer);
-  }, []);
+  }, [maxIndex]);
 
-  const variants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 300 : -300,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      x: direction < 0 ? 300 : -300,
-      opacity: 0,
-    }),
+  // Get current visible testimonials
+  const getVisibleTestimonials = () => {
+    const start = currentIndex * itemsPerPage;
+    return testimonials.slice(start, start + itemsPerPage);
   };
 
   return (
@@ -94,85 +102,81 @@ const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        {/* Testimonial Carousel */}
-        <div className="relative max-w-4xl mx-auto">
-          <div className="overflow-hidden">
-            <AnimatePresence mode="wait" custom={direction}>
+        {/* Testimonials Grid - 3 at a time */}
+        <div className="relative">
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {getVisibleTestimonials().map((testimonial, index) => (
               <motion.div
-                key={currentIndex}
-                custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.5 }}
-                className="bg-card rounded-3xl p-8 md:p-12 shadow-card border border-border/50"
+                key={testimonial.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-card rounded-2xl p-6 shadow-card border border-border/50 flex flex-col h-full"
               >
                 {/* Quote Icon */}
-                <div className="w-16 h-16 rounded-full gradient-golden flex items-center justify-center mb-8 mx-auto">
-                  <Quote className="w-8 h-8 text-secondary-foreground" />
+                <div className="w-12 h-12 rounded-full gradient-golden flex items-center justify-center mb-4">
+                  <Quote className="w-5 h-5 text-secondary-foreground" />
                 </div>
 
                 {/* Feedback */}
-                <p className="text-lg md:text-xl text-foreground/80 text-center leading-relaxed mb-8">
-                  "{testimonials[currentIndex].feedback}"
+                <p className="text-foreground/80 leading-relaxed mb-6 flex-grow text-sm md:text-base">
+                  "{testimonial.feedback}"
                 </p>
 
                 {/* Student Info */}
-                <div className="flex flex-col items-center">
+                <div className="flex items-center gap-4 pt-4 border-t border-border">
                   <img
-                    src={testimonials[currentIndex].image}
-                    alt={testimonials[currentIndex].name}
-                    className="w-20 h-20 rounded-full object-cover mb-4 border-4 border-secondary"
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-14 h-14 rounded-full object-cover border-2 border-secondary"
                   />
-                  <h4 className="font-heading font-semibold text-foreground text-lg">
-                    {testimonials[currentIndex].name}
-                  </h4>
-                  <p className="text-secondary font-medium">
-                    {testimonials[currentIndex].university}
-                  </p>
-                  <p className="text-muted-foreground text-sm">
-                    {testimonials[currentIndex].country}
-                  </p>
+                  <div>
+                    <h4 className="font-heading font-semibold text-foreground">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-secondary text-sm font-medium">
+                      {testimonial.university}
+                    </p>
+                    <p className="text-muted-foreground text-xs">
+                      {testimonial.country}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
-            </AnimatePresence>
+            ))}
           </div>
 
           {/* Navigation Buttons */}
           <button
-            onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-12 h-12 rounded-full bg-card shadow-lg border border-border flex items-center justify-center text-foreground hover:bg-accent transition-colors"
-            aria-label="Previous testimonial"
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-14 w-10 h-10 md:w-12 md:h-12 rounded-full bg-card shadow-lg border border-border flex items-center justify-center text-foreground hover:bg-accent transition-colors z-10"
+            aria-label="Previous testimonials"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
           </button>
           <button
-            onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-12 h-12 rounded-full bg-card shadow-lg border border-border flex items-center justify-center text-foreground hover:bg-accent transition-colors"
-            aria-label="Next testimonial"
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-14 w-10 h-10 md:w-12 md:h-12 rounded-full bg-card shadow-lg border border-border flex items-center justify-center text-foreground hover:bg-accent transition-colors z-10"
+            aria-label="Next testimonials"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
           </button>
+        </div>
 
-          {/* Dots Indicator */}
-          <div className="flex justify-center gap-2 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setDirection(index > currentIndex ? 1 : -1);
-                  setCurrentIndex(index);
-                }}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? "bg-secondary w-8"
-                    : "bg-border hover:bg-muted-foreground"
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
-          </div>
+        {/* Dots Indicator */}
+        <div className="flex justify-center gap-2 mt-8">
+          {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentIndex
+                  ? "bg-secondary w-8"
+                  : "bg-border hover:bg-muted-foreground"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
