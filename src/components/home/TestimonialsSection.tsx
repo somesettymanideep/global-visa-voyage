@@ -80,7 +80,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-background overflow-hidden">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
