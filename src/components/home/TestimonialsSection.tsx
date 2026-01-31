@@ -55,9 +55,18 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Calculate max index for groups of 3
-  const itemsPerPage = 3;
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Calculate max index based on items per page
+  const itemsPerPage = isMobile ? 1 : 3;
   const maxIndex = Math.ceil(testimonials.length / itemsPerPage) - 1;
 
   const nextSlide = () => {
@@ -68,10 +77,16 @@ const TestimonialsSection = () => {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   };
 
+  // Reset index when switching between mobile/desktop
   useEffect(() => {
-    const timer = setInterval(nextSlide, 8000);
+    setCurrentIndex(0);
+  }, [isMobile]);
+
+  // Autoplay - faster on mobile (4s) vs desktop (8s)
+  useEffect(() => {
+    const timer = setInterval(nextSlide, isMobile ? 4000 : 8000);
     return () => clearInterval(timer);
-  }, [maxIndex]);
+  }, [maxIndex, isMobile]);
 
   // Get current visible testimonials
   const getVisibleTestimonials = () => {

@@ -75,12 +75,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:block"
+            className="flex justify-center lg:block"
           >
             <img
               src={heroImage}
               alt="Students studying abroad with global landmarks"
-              className="w-full h-auto rounded-2xl shadow-2xl"
+              className="w-full max-w-md lg:max-w-none h-auto rounded-2xl shadow-2xl"
             />
           </motion.div>
         </div>
