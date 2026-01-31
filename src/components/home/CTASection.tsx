@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
+import ctaBackground from "@/assets/cta-background.jpg";
 
 const CTASection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -22,7 +23,7 @@ const CTASection = () => {
         style={{ y: backgroundY }}
       >
         <img 
-          src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070"
+          src={ctaBackground}
           alt="Students celebrating graduation"
           className="w-full h-full object-cover"
         />
