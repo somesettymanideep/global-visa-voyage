@@ -18,14 +18,17 @@ const CTASection = () => {
     <section ref={sectionRef} className="relative py-16 md:py-20 overflow-hidden">
       {/* Background Image with Parallax */}
       <motion.div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
-        style={{ 
-          backgroundImage: `url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070')`,
-          y: backgroundY
-        }}
-      />
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-primary/90" />
+        className="absolute inset-0 scale-110"
+        style={{ y: backgroundY }}
+      >
+        <img 
+          src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070"
+          alt="Students celebrating graduation"
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/75 to-primary/80" />
 
       <div className="container-custom relative z-10">
         <motion.div
