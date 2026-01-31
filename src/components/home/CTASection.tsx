@@ -13,7 +13,7 @@ const CTASection = () => {
     offset: ["start end", "end start"]
   });
   
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["-25%", "25%"]);
 
   return (
     <section ref={sectionRef} className="relative py-16 md:py-20 overflow-hidden">
