@@ -66,31 +66,42 @@ const CountriesSection = () => {
           {countries.map((country, index) => (
             <motion.div
               key={country.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ 
+                duration: 0.5, 
+                delay: index * 0.15,
+                type: "spring",
+                stiffness: 100,
+                damping: 12
+              }}
+              whileHover={{ y: -8 }}
             >
               <Link to="/contact">
-                <div className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-xl transition-all duration-300 border border-border/50 text-center p-6 hover:-translate-y-2">
+                <div className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-xl transition-all duration-300 border border-border/50 text-center p-6">
                   {/* Flag Image */}
-                  <div className="w-20 h-14 md:w-24 md:h-16 mx-auto mb-4 rounded-lg overflow-hidden shadow-md group-hover:scale-110 transition-transform duration-300">
+                  <motion.div 
+                    className="w-20 h-14 md:w-24 md:h-16 mx-auto mb-4 rounded-lg overflow-hidden shadow-md"
+                    whileHover={{ scale: 1.1, rotate: 2 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
                     <img 
                       src={country.flag} 
                       alt={`${country.name} flag`}
                       className="w-full h-full object-cover"
                     />
-                  </div>
+                  </motion.div>
                   
                   {/* Country Name */}
                   <h3 className="text-lg md:text-xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
                     {country.shortName}
                   </h3>
                   
-                  {/* Explore indicator */}
-                  <div className="mt-3 flex items-center justify-center gap-1 text-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {/* Explore Button */}
+                  <div className="mt-3 flex items-center justify-center gap-1 text-secondary">
                     <span className="text-sm font-medium">Explore</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </Link>
