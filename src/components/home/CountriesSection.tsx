@@ -3,30 +3,36 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
+import ukFlag from "@/assets/flags/uk.webp";
+import australiaFlag from "@/assets/flags/australia.webp";
+import usaFlag from "@/assets/flags/usa.svg";
+import canadaFlag from "@/assets/flags/canada.svg";
+import germanyFlag from "@/assets/flags/germany.png";
+
 const countries = [
   {
     name: "United Kingdom",
-    flag: "🇬🇧",
+    flag: ukFlag,
     shortName: "UK",
   },
   {
     name: "Australia",
-    flag: "🇦🇺",
+    flag: australiaFlag,
     shortName: "Australia",
   },
   {
     name: "United States",
-    flag: "🇺🇸",
+    flag: usaFlag,
     shortName: "USA",
   },
   {
     name: "Canada",
-    flag: "🇨🇦",
+    flag: canadaFlag,
     shortName: "Canada",
   },
   {
     name: "Germany",
-    flag: "🇩🇪",
+    flag: germanyFlag,
     shortName: "Germany",
   },
 ];
@@ -67,10 +73,14 @@ const CountriesSection = () => {
             >
               <Link to="/contact">
                 <div className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-xl transition-all duration-300 border border-border/50 text-center p-6 hover:-translate-y-2">
-                  {/* Flag */}
-                  <span className="text-6xl md:text-7xl block mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {country.flag}
-                  </span>
+                  {/* Flag Image */}
+                  <div className="w-20 h-14 md:w-24 md:h-16 mx-auto mb-4 rounded-lg overflow-hidden shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <img 
+                      src={country.flag} 
+                      alt={`${country.name} flag`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   
                   {/* Country Name */}
                   <h3 className="text-lg md:text-xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
