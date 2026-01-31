@@ -5,13 +5,14 @@ import { Button } from "@/components/ui/button";
 
 const CTASection = () => {
   return (
-    <section className="relative py-24 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 gradient-hero" />
-      
-      {/* Decorative circles */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-foreground/5 rounded-full blur-3xl" />
+    <section className="relative py-16 md:py-20 overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070')` }}
+      />
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-primary/90" />
 
       <div className="container-custom relative z-10">
         <motion.div
