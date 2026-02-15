@@ -18,7 +18,7 @@ const navLinks = [
     ],
   },
   
-  { name: "About", path: "/#why-choose-us" },
+  { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
 ];
 
