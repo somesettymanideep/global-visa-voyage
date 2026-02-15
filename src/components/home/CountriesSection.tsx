@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -10,34 +11,21 @@ import canadaFlag from "@/assets/flags/canada.svg";
 import germanyFlag from "@/assets/flags/germany.png";
 
 const countries = [
-  {
-    name: "United Kingdom",
-    flag: ukFlag,
-    shortName: "UK",
-  },
-  {
-    name: "Australia",
-    flag: australiaFlag,
-    shortName: "Australia",
-  },
-  {
-    name: "United States",
-    flag: usaFlag,
-    shortName: "USA",
-  },
-  {
-    name: "Canada",
-    flag: canadaFlag,
-    shortName: "Canada",
-  },
-  {
-    name: "Germany",
-    flag: germanyFlag,
-    shortName: "Germany",
-  },
+  { name: "United Kingdom", flag: ukFlag, shortName: "UK" },
+  { name: "Australia", flag: australiaFlag, shortName: "Australia" },
+  { name: "United States", flag: usaFlag, shortName: "USA" },
+  { name: "Canada", flag: canadaFlag, shortName: "Canada" },
+  { name: "Germany", flag: germanyFlag, shortName: "Germany" },
+];
+
+const tabs = [
+  { label: "Bachelors", path: "/study-abroad/bachelors" },
+  { label: "Masters", path: "/study-abroad/masters" },
 ];
 
 const CountriesSection = () => {
+  const [activeTab, setActiveTab] = useState(0);
+
   return (
     <section id="countries" className="section-padding bg-muted">
       <div className="container-custom">
@@ -47,7 +35,7 @@ const CountriesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-10"
         >
           <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
             Study Destinations
@@ -61,7 +49,24 @@ const CountriesSection = () => {
           </p>
         </motion.div>
 
-        {/* Countries Grid - Flag Cards */}
+        {/* Tabs */}
+        <div className="flex justify-center gap-2 mb-12">
+          {tabs.map((tab, index) => (
+            <button
+              key={tab.label}
+              onClick={() => setActiveTab(index)}
+              className={`px-6 py-3 rounded-xl font-heading font-semibold text-sm md:text-base transition-all duration-300 ${
+                activeTab === index
+                  ? "bg-primary text-primary-foreground shadow-lg"
+                  : "bg-card text-muted-foreground border border-border/50 hover:border-primary/30 hover:text-foreground"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Countries Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 max-w-5xl mx-auto">
           {countries.map((country, index) => (
             <motion.div
@@ -69,36 +74,33 @@ const CountriesSection = () => {
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ 
-                duration: 0.5, 
+              transition={{
+                duration: 0.5,
                 delay: index * 0.15,
                 type: "spring",
                 stiffness: 100,
-                damping: 12
+                damping: 12,
               }}
               whileHover={{ y: -8 }}
             >
-              <Link to="/contact">
+              <Link to={tabs[activeTab].path}>
                 <div className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-xl transition-all duration-300 border border-border/50 text-center p-6">
-                  {/* Flag Image */}
-                  <motion.div 
+                  <motion.div
                     className="w-20 h-14 md:w-24 md:h-16 mx-auto mb-4 rounded-lg overflow-hidden shadow-md"
                     whileHover={{ scale: 1.1, rotate: 2 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <img 
-                      src={country.flag} 
+                    <img
+                      src={country.flag}
                       alt={`${country.name} flag`}
                       className="w-full h-full object-cover"
                     />
                   </motion.div>
-                  
-                  {/* Country Name */}
+
                   <h3 className="text-lg md:text-xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
                     {country.shortName}
                   </h3>
-                  
-                  {/* Explore Button */}
+
                   <div className="mt-3 flex items-center justify-center gap-1 text-secondary">
                     <span className="text-sm font-medium">Explore</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
