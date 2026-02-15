@@ -17,7 +17,7 @@ const navLinks = [
       { name: "MBBS", path: "/study-abroad/mbbs" },
     ],
   },
-  { name: "Countries", path: "/#countries" },
+  
   { name: "About", path: "/#why-choose-us" },
   { name: "Contact", path: "/contact" },
 ];
