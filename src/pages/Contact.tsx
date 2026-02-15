@@ -32,8 +32,7 @@ const courses = [
 ];
 
 const intakeMonths = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December",
+  "January", "September",
 ];
 
 const currentYear = new Date().getFullYear();
