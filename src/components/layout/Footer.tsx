@@ -116,10 +116,7 @@ const Footer = () => {
       {/* Copyright Bar */}
       <div className="bg-secondary">
         <div className="container-custom py-4 flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-secondary-foreground">
-          <div className="flex items-center gap-3">
-            <img src={logo} alt="Pravaas International" className="h-8 w-auto" />
-            <p>&copy; {new Date().getFullYear()} Pravaas International. All rights reserved.</p>
-          </div>
+          <p>&copy; {new Date().getFullYear()} Pravaas International. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-secondary-foreground/70 transition-colors">Terms of Service</a>
