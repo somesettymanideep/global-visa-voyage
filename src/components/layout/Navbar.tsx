@@ -17,7 +17,7 @@ const navLinks = [
       { name: "MBBS", path: "/study-abroad/mbbs" },
     ],
   },
-  { name: "Services", path: "/#services" },
+  { name: "Services", path: "/services" },
   { name: "Contact", path: "/contact" },
 ];
 

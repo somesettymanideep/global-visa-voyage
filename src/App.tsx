@@ -9,6 +9,7 @@ import Bachelors from "./pages/Bachelors";
 import Masters from "./pages/Masters";
 import MBBS from "./pages/MBBS";
 import About from "./pages/About";
+import Services from "./pages/Services";
 import NotFound from "./pages/NotFound";
 import SocialSidebar from "./components/layout/SocialSidebar";
 import ScrollToTop from "./components/layout/ScrollToTop";
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/study-abroad/masters" element={<Masters />} />
           <Route path="/study-abroad/mbbs" element={<MBBS />} />
           <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
