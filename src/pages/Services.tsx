@@ -4,10 +4,8 @@ import { useRef, useEffect, useState } from "react";
 import {
   Compass, Briefcase, FileCheck, BookOpen, Award, Plane, Home,
   ArrowRight, Star, GraduationCap, Globe, ShieldCheck, Eye,
-  Handshake, HeartHandshake, Quote, ChevronLeft, ChevronRight,
-  Phone, MessageCircle,
+  Handshake, HeartHandshake,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import heroStudents from "@/assets/hero-students-global.png";
@@ -16,6 +14,9 @@ import australiaFlag from "@/assets/flags/australia.webp";
 import usaFlag from "@/assets/flags/usa.svg";
 import canadaFlag from "@/assets/flags/canada.svg";
 import germanyFlag from "@/assets/flags/germany.png";
+import finlandFlag from "@/assets/flags/finland.png";
+import singaporeFlag from "@/assets/flags/singapore.png";
+import malaysiaFlag from "@/assets/flags/malaysia.svg";
 
 /* ─── Data ──────────────────────────────────────────── */
 
@@ -47,9 +48,9 @@ const destinations = [
   { name: "Australia", flag: australiaFlag },
   { name: "Canada", flag: canadaFlag },
   { name: "Germany", flag: germanyFlag },
-  { name: "Finland & Europe", flag: null },
-  { name: "Singapore", flag: null },
-  { name: "Malaysia", flag: null },
+  { name: "Finland", flag: finlandFlag },
+  { name: "Singapore", flag: singaporeFlag },
+  { name: "Malaysia", flag: malaysiaFlag },
 ];
 
 const whyChoose = [
@@ -59,13 +60,6 @@ const whyChoose = [
   { icon: Globe, title: "Visa Success Experts" },
   { icon: Handshake, title: "Personalized Counseling" },
   { icon: Compass, title: "Complete End-to-End Support" },
-];
-
-const testimonials = [
-  { id: 1, name: "Priya Sharma", country: "United Kingdom", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face", feedback: "Pravaas made my UK admission process simple and stress-free. I couldn't have done it without their support!", rating: 5 },
-  { id: 2, name: "Rahul Patel", country: "Australia", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face", feedback: "Their scholarship guidance saved me thousands. The team is professional, transparent, and genuinely caring.", rating: 5 },
-  { id: 3, name: "Sneha Reddy", country: "Canada", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face", feedback: "From application to arrival, Pravaas handled everything. I'm now living my dream of studying abroad!", rating: 5 },
-  { id: 4, name: "Arjun Mehta", country: "Germany", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face", feedback: "The visa interview prep was outstanding. I felt fully prepared and confident. Highly recommended!", rating: 4 },
 ];
 
 /* ─── Counter Hook ──────────────────────────────────── */
@@ -121,26 +115,6 @@ const Counter = ({ value, suffix, label, icon: Icon }: { value: number; suffix: 
 /* ─── Page Component ────────────────────────────────── */
 
 const Services = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
-
-  const perSlide = isMobile ? 1 : 2;
-  const maxSlide = Math.ceil(testimonials.length / perSlide) - 1;
-
-  useEffect(() => {
-    const timer = setInterval(() => setCurrentSlide((p) => (p >= maxSlide ? 0 : p + 1)), 6000);
-    return () => clearInterval(timer);
-  }, [maxSlide]);
-
-  const visibleTestimonials = testimonials.slice(currentSlide * perSlide, currentSlide * perSlide + perSlide);
-
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -320,15 +294,9 @@ const Services = () => {
               >
                 <Link to="/contact">
                   <div className="group bg-card rounded-2xl p-6 shadow-card border border-border/50 hover:border-secondary/30 hover:shadow-xl transition-all duration-300 text-center">
-                    {dest.flag ? (
-                      <div className="w-16 h-11 mx-auto mb-4 rounded-lg overflow-hidden shadow-md">
-                        <img src={dest.flag} alt={`${dest.name} flag`} className="w-full h-full object-cover" />
-                      </div>
-                    ) : (
-                      <div className="w-16 h-11 mx-auto mb-4 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <Globe className="w-6 h-6 text-primary" />
-                      </div>
-                    )}
+                    <div className="w-16 h-11 mx-auto mb-4 rounded-lg overflow-hidden shadow-md">
+                      <img src={dest.flag} alt={`${dest.name} flag`} className="w-full h-full object-cover" />
+                    </div>
                     <h3 className="font-heading font-semibold text-foreground group-hover:text-primary transition-colors text-sm md:text-base">
                       {dest.name}
                     </h3>
@@ -379,112 +347,6 @@ const Services = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── 7. Student Testimonials ───────────────────── */}
-      <section className="section-padding bg-accent/50 overflow-hidden">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
-              Testimonials
-            </span>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
-              What Our Students Say
-            </h2>
-          </motion.div>
-
-          <div className="relative max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-6">
-              {visibleTestimonials.map((t, i) => (
-                <motion.div
-                  key={t.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="bg-card rounded-2xl p-6 shadow-card border border-border/50"
-                >
-                  <Quote className="w-8 h-8 text-secondary mb-3" />
-                  <p className="text-foreground/80 leading-relaxed mb-4">"{t.feedback}"</p>
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: 5 }).map((_, s) => (
-                      <Star key={s} className={`w-4 h-4 ${s < t.rating ? "text-secondary fill-secondary" : "text-border"}`} />
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-3 pt-4 border-t border-border">
-                    <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full object-cover border-2 border-secondary" />
-                    <div>
-                      <p className="font-heading font-semibold text-foreground">{t.name}</p>
-                      <p className="text-muted-foreground text-sm">{t.country}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <button
-              onClick={() => setCurrentSlide((p) => (p <= 0 ? maxSlide : p - 1))}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-14 w-10 h-10 rounded-full bg-card shadow-lg border border-border flex items-center justify-center text-foreground hover:bg-accent transition-colors"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => setCurrentSlide((p) => (p >= maxSlide ? 0 : p + 1))}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-14 w-10 h-10 rounded-full bg-card shadow-lg border border-border flex items-center justify-center text-foreground hover:bg-accent transition-colors"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-
-            <div className="flex justify-center gap-2 mt-8">
-              {Array.from({ length: maxSlide + 1 }).map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentSlide(i)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${i === currentSlide ? "bg-secondary w-8" : "bg-border hover:bg-muted-foreground"}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 8. Final CTA ──────────────────────────────── */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-secondary/80" />
-        <div className="container-custom relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-6">
-              Start Your Study Abroad Journey<br />with Pravaas Today
-            </h2>
-            <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto mb-10">
-              Get expert guidance from our experienced counselors. Your dream of studying abroad is just one step away.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/contact">
-                <Button variant="golden" size="xl" className="group">
-                  Book Free Counseling
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <a href="https://wa.me/918008249666" target="_blank" rel="noopener noreferrer">
-                <Button variant="outlineLight" size="xl" className="group">
-                  <MessageCircle className="w-5 h-5" />
-                  WhatsApp Us
-                </Button>
-              </a>
-            </div>
-          </motion.div>
         </div>
       </section>
 
