@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import contactBanner from "@/assets/contact-banner.jpg";
 
 const branches = [
   {
@@ -88,19 +89,25 @@ const Contact = () => {
     <div className="min-h-screen">
       <Navbar />
 
-      {/* Hero Banner */}
-      <section className="relative pt-32 pb-20 gradient-hero">
-        <div className="container-custom relative z-10">
+      {/* Sub Page Banner */}
+      <section className="relative pt-24 h-[340px] md:h-[400px] overflow-hidden">
+        <img
+          src={contactBanner}
+          alt="Contact Us - International Education Consultancy"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-primary/70" />
+        <div className="container-custom relative z-10 h-full flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-4">
               Contact Us
             </h1>
-            <p className="text-xl text-primary-foreground/80">
+            <p className="text-lg md:text-xl text-primary-foreground/90">
               Get in touch with our expert counselors and start your journey to studying abroad.
             </p>
           </motion.div>
