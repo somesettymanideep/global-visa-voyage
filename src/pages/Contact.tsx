@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, Send, Building2 } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, Building2, Users, Globe, FileCheck, BookOpen, Briefcase, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -407,6 +407,59 @@ const Contact = () => {
               title="Pravaas International Education Consultancy Location"
             />
           </motion.div>
+        </div>
+      </section>
+
+      {/* Services Banner */}
+      <section className="section-padding gradient-primary">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
+              What We Offer
+            </span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground mb-4">
+              Our Services
+            </h2>
+            <p className="text-primary-foreground/80 max-w-2xl mx-auto">
+              Comprehensive support for every step of your study abroad journey.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { icon: Users, title: "Expert Mentorship", desc: "Personalized guidance from experienced counselors." },
+              { icon: Globe, title: "Global Network", desc: "Access to 50+ partner universities worldwide." },
+              { icon: FileCheck, title: "Visa Assistance", desc: "Comprehensive visa support with 98% success rate." },
+              { icon: BookOpen, title: "Test Preparation", desc: "Expert coaching for IELTS, TOEFL, GRE & more." },
+              { icon: Briefcase, title: "Career Counselling", desc: "Strategic career planning for global job markets." },
+              { icon: Award, title: "Scholarship Guidance", desc: "Navigate scholarships & financial aid options." },
+            ].map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="flex items-start gap-4 p-6 rounded-2xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/10 hover:bg-primary-foreground/15 transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl gradient-golden flex items-center justify-center shrink-0">
+                  <service.icon className="w-6 h-6 text-secondary-foreground" />
+                </div>
+                <div>
+                  <h3 className="font-heading font-semibold text-primary-foreground mb-1">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-primary-foreground/70">{service.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
