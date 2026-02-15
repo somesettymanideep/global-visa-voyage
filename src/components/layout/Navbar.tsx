@@ -7,7 +7,7 @@ import logo from "@/assets/logo.webp";
 
 const navLinks = [
   { name: "Home", path: "/" },
-  { name: "Services", path: "/#services" },
+  { name: "About", path: "/about" },
   {
     name: "Study Abroad",
     path: "#",
@@ -17,8 +17,7 @@ const navLinks = [
       { name: "MBBS", path: "/study-abroad/mbbs" },
     ],
   },
-  
-  { name: "About", path: "/about" },
+  { name: "Services", path: "/#services" },
   { name: "Contact", path: "/contact" },
 ];
 
