@@ -92,8 +92,8 @@ const About = () => {
     <div className="min-h-screen">
       <Navbar />
 
-      {/* 1. Hero About Section */}
-      <section className="relative pt-24 h-[400px] md:h-[480px] overflow-hidden">
+      {/* 1. Hero About Banner */}
+      <section className="relative pt-24 h-[280px] md:h-[320px] overflow-hidden">
         <motion.img
           src={aboutHero}
           alt="International campus students - About Pravaas Education"
@@ -104,35 +104,25 @@ const About = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/75 to-primary/85" />
         <div className="container-custom relative z-10 h-full flex items-center justify-center">
-          <div className="text-center max-w-3xl mx-auto">
+          <div className="text-center">
             <motion.h1
-              initial={{ opacity: 0, y: 40, filter: "blur(6px)" }}
+              initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-4"
+              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-4"
             >
-              About <span className="text-gradient">Pravaas Education</span>
+              About Us
             </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
+            <motion.nav
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="text-lg md:text-xl text-primary-foreground/90 mb-8"
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="flex items-center justify-center gap-2 text-primary-foreground/80 text-sm md:text-base"
             >
-              Helping students achieve global dreams.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.8, type: "spring", stiffness: 200 }}
-            >
-              <Link to="/contact">
-                <Button variant="hero" size="xl" className="group">
-                  Book Free Counseling
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </motion.div>
+              <Link to="/" className="hover:text-secondary transition-colors">Home</Link>
+              <span>/</span>
+              <span className="text-secondary font-medium">About Us</span>
+            </motion.nav>
           </div>
         </div>
       </section>
