@@ -19,12 +19,11 @@ import founderImg from "@/assets/founder.jpg";
 import { useState, useEffect } from "react";
 
 const whyPravaasFeatures = [
-  { title: "Expert UK & Global Admission Guidance", icon: Globe },
-  { title: "100% Transparent Process", icon: CheckCircle },
-  { title: "Visa Success Support", icon: Target },
-  { title: "Scholarship Assistance", icon: Star },
-  { title: "End-to-End Student Support", icon: ArrowRight },
-  { title: "Trusted by Hundreds of Students", icon: MessageSquare },
+  { title: "Free Profile Evaluation and Career Counselling", icon: CheckCircle },
+  { title: "Course and University Selection Guidance", icon: Globe },
+  { title: "Application and Documentation Support", icon: MessageSquare },
+  { title: "Visa Guidance and Interview Preparation", icon: Target },
+  { title: "Pre-departure Support and Assistance", icon: ArrowRight },
 ];
 
 const testimonials = [
@@ -165,7 +164,7 @@ const About = () => {
               </div>
               <h3 className="text-2xl font-heading font-bold text-foreground mb-3">Our Vision</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Become a trusted global education partner guiding students to top universities worldwide.
+                To guide students with transparency and integrity towards globally recognized education and successful international careers.
               </p>
             </motion.div>
 
@@ -182,7 +181,7 @@ const About = () => {
               </div>
               <h3 className="text-2xl font-heading font-bold text-foreground mb-3">Our Mission</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Provide transparent guidance, expert counseling, and end-to-end support for students to study abroad successfully.
+                To provide honest, personalized, and end-to-end study abroad guidance, helping students make informed academic and career decisions.
               </p>
             </motion.div>
           </div>
