@@ -1,36 +1,41 @@
 import { motion } from "framer-motion";
-import { Users, Globe, FileCheck, BookOpen, Briefcase, Award } from "lucide-react";
+import { BookOpen, Briefcase, FileCheck, Plane, Award, Home, Compass } from "lucide-react";
 
 const services = [
   {
-    icon: Users,
-    title: "Expert Mentorship",
-    description: "Personalized guidance from experienced counselors who understand your aspirations and help you choose the right path.",
-  },
-  {
-    icon: Globe,
-    title: "Global Network",
-    description: "Access to 50+ partner universities worldwide, opening doors to prestigious institutions across the globe.",
-  },
-  {
-    icon: FileCheck,
-    title: "Visa Assistance",
-    description: "Comprehensive visa support with 98% success rate. We handle documentation, mock interviews, and more.",
-  },
-  {
-    icon: BookOpen,
-    title: "Test Preparation",
-    description: "Expert coaching for IELTS, TOEFL, GRE, GMAT, and other standardized tests with proven strategies.",
+    icon: Compass,
+    title: "Course Selection Guidance",
+    description: "Personalized assistance in choosing the right course based on your academic background and career goals.",
   },
   {
     icon: Briefcase,
     title: "Career Counselling",
-    description: "Strategic career planning aligned with global job markets to maximize your international education ROI.",
+    description: "Professional counselling to help you make informed decisions about your future.",
+  },
+  {
+    icon: FileCheck,
+    title: "Application & Document Assistance",
+    description: "Complete support in preparing and submitting applications, including documentation review.",
+  },
+  {
+    icon: BookOpen,
+    title: "Visa Processing & Interview Preparation",
+    description: "Expert guidance for visa applications along with mock interview sessions.",
   },
   {
     icon: Award,
-    title: "Scholarship Guidance",
-    description: "Navigate scholarship opportunities and financial aid to make your dream education affordable.",
+    title: "Scholarship & Financial Guidance",
+    description: "Assistance in identifying scholarship opportunities and planning finances.",
+  },
+  {
+    icon: Plane,
+    title: "Pre-Departure & Post-Arrival Support",
+    description: "Orientation sessions before departure and continued assistance after arrival.",
+  },
+  {
+    icon: Home,
+    title: "Accommodation Assistance",
+    description: "Help in securing safe and comfortable accommodation near your university.",
   },
 ];
 
