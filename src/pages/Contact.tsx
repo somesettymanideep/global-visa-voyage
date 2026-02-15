@@ -203,30 +203,15 @@ const Contact = () => {
                   </li>
                 </ul>
               </div>
-
-              {/* Quick Contact */}
-              <div className="bg-primary rounded-2xl p-6 text-primary-foreground">
-                <h3 className="font-heading font-semibold text-lg mb-2">
-                  Need Immediate Assistance?
-                </h3>
-                <p className="text-primary-foreground/80 mb-4">
-                  Call us directly for urgent queries or to book an appointment.
-                </p>
-                <a href="tel:+918008249666">
-                  <Button variant="secondary" className="w-full">
-                    <Phone className="w-5 h-5" />
-                    Call Now: +91 80082 49666
-                  </Button>
-                </a>
-              </div>
             </motion.div>
 
-            {/* Contact Form - Right Side */}
+            {/* Contact Form + Assistance - Right Side */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-col gap-6"
             >
               <div className="bg-card rounded-3xl p-8 md:p-10 shadow-card border border-border/50">
                 <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-2">
@@ -252,37 +237,36 @@ const Contact = () => {
                     />
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="mobile" className="block text-sm font-medium text-foreground mb-2">
-                        Mobile Number *
-                      </label>
-                      <Input
-                        id="mobile"
-                        name="mobile"
-                        type="tel"
-                        value={formData.mobile}
-                        onChange={handleChange}
-                        placeholder="+91 98765 43210"
-                        required
-                        className="h-12"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                        Email Address *
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="you@example.com"
-                        required
-                        className="h-12"
-                      />
-                    </div>
+                  <div>
+                    <label htmlFor="mobile" className="block text-sm font-medium text-foreground mb-2">
+                      Mobile Number *
+                    </label>
+                    <Input
+                      id="mobile"
+                      name="mobile"
+                      type="tel"
+                      value={formData.mobile}
+                      onChange={handleChange}
+                      placeholder="+91 98765 43210"
+                      required
+                      className="h-12"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                      Email Address *
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="you@example.com"
+                      required
+                      className="h-12"
+                    />
                   </div>
 
                   <div>
@@ -304,56 +288,55 @@ const Contact = () => {
                     </select>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Preferred Intake (Month & Year) *
-                      </label>
-                      <div className="grid grid-cols-2 gap-2">
-                        <select
-                          name="intakeMonth"
-                          value={formData.intakeMonth}
-                          onChange={handleChange}
-                          required
-                          className={selectClasses}
-                        >
-                          <option value="">Month</option>
-                          {intakeMonths.map((m) => (
-                            <option key={m} value={m}>{m}</option>
-                          ))}
-                        </select>
-                        <select
-                          name="intakeYear"
-                          value={formData.intakeYear}
-                          onChange={handleChange}
-                          required
-                          className={selectClasses}
-                        >
-                          <option value="">Year</option>
-                          {intakeYears.map((y) => (
-                            <option key={y} value={y}>{y}</option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-                    <div>
-                      <label htmlFor="passingYear" className="block text-sm font-medium text-foreground mb-2">
-                        Year of Passing (Highest Qualification) *
-                      </label>
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Preferred Intake (Month & Year) *
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
                       <select
-                        id="passingYear"
-                        name="passingYear"
-                        value={formData.passingYear}
+                        name="intakeMonth"
+                        value={formData.intakeMonth}
                         onChange={handleChange}
                         required
                         className={selectClasses}
                       >
-                        <option value="">Select year</option>
-                        {passingYears.map((y) => (
+                        <option value="">Month</option>
+                        {intakeMonths.map((m) => (
+                          <option key={m} value={m}>{m}</option>
+                        ))}
+                      </select>
+                      <select
+                        name="intakeYear"
+                        value={formData.intakeYear}
+                        onChange={handleChange}
+                        required
+                        className={selectClasses}
+                      >
+                        <option value="">Year</option>
+                        {intakeYears.map((y) => (
                           <option key={y} value={y}>{y}</option>
                         ))}
                       </select>
                     </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="passingYear" className="block text-sm font-medium text-foreground mb-2">
+                      Year of Passing (Highest Qualification) *
+                    </label>
+                    <select
+                      id="passingYear"
+                      name="passingYear"
+                      value={formData.passingYear}
+                      onChange={handleChange}
+                      required
+                      className={selectClasses}
+                    >
+                      <option value="">Select year</option>
+                      {passingYears.map((y) => (
+                        <option key={y} value={y}>{y}</option>
+                      ))}
+                    </select>
                   </div>
 
                   <Button
@@ -373,6 +356,22 @@ const Contact = () => {
                     )}
                   </Button>
                 </form>
+              </div>
+
+              {/* Need Assistance - Under Form */}
+              <div className="bg-primary rounded-2xl p-6 text-primary-foreground">
+                <h3 className="font-heading font-semibold text-lg mb-2">
+                  Need Immediate Assistance?
+                </h3>
+                <p className="text-primary-foreground/80 mb-4">
+                  Call us directly for urgent queries or to book an appointment.
+                </p>
+                <a href="tel:+918008249666">
+                  <Button variant="secondary" className="w-full">
+                    <Phone className="w-5 h-5" />
+                    Call Now: +91 80082 49666
+                  </Button>
+                </a>
               </div>
             </motion.div>
           </div>
