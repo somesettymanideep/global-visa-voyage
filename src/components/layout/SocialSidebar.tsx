@@ -35,6 +35,34 @@ const socialItems = [
   },
 ];
 
+const SocialItem = ({ item }: { item: typeof socialItems[number] }) => {
+  const [hovered, setHovered] = useState(false);
+  
+  return (
+    <a
+      href={item.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={`flex items-center ${item.bg} rounded-r-xl overflow-hidden shadow-lg transition-all duration-300 w-fit`}
+    >
+      <div className="p-3 flex items-center justify-center text-white shrink-0">
+        <item.icon className="w-5 h-5" />
+      </div>
+      <span
+        className="overflow-hidden transition-all duration-300 text-white text-sm font-medium whitespace-nowrap"
+        style={{
+          maxWidth: hovered ? 120 : 0,
+          paddingRight: hovered ? 16 : 0,
+        }}
+      >
+        {item.label}
+      </span>
+    </a>
+  );
+};
+
 const SocialSidebar = () => {
   const [visible, setVisible] = useState(false);
 
@@ -57,20 +85,7 @@ const SocialSidebar = () => {
           className="fixed left-0 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2"
         >
           {socialItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group flex items-center ${item.bg} rounded-r-xl overflow-hidden shadow-lg transition-all duration-300`}
-            >
-              <div className="p-3 flex items-center justify-center text-white">
-                <item.icon className="w-5 h-5" />
-              </div>
-              <span className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300 text-white text-sm font-medium whitespace-nowrap group-hover:pr-4">
-                {item.label}
-              </span>
-            </a>
+            <SocialItem key={item.label} item={item} />
           ))}
         </motion.div>
       )}
