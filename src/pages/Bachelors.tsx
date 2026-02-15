@@ -61,8 +61,8 @@ const Bachelors = () => {
       <section className="relative pt-24 h-[280px] md:h-[320px] overflow-hidden">
         <img src={bachelorsHero} alt="Study Bachelors Abroad" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-primary/70" />
-        <div className="container-custom relative z-10 h-full flex items-center justify-center">
-          <div className="text-center">
+        <div className="container-custom relative z-10 h-full flex items-center">
+          <div>
             <motion.h1
               initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -75,7 +75,7 @@ const Bachelors = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex items-center justify-center gap-2 text-primary-foreground/80 text-sm md:text-base"
+              className="flex items-center gap-2 text-primary-foreground/80 text-sm md:text-base"
             >
               <Link to="/" className="hover:text-secondary transition-colors">Home</Link>
               <span>/</span>
