@@ -5,10 +5,9 @@ import logo from "@/assets/logo.webp";
 const Footer = () => {
   const quickLinks = [
     { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
-    { name: "Bachelors", path: "/bachelors" },
-    { name: "Masters", path: "/masters" },
-    { name: "MBBS", path: "/mbbs" },
+    { name: "About Us", path: "/#why-choose-us" },
+    { name: "Services", path: "/#services" },
+    { name: "Countries", path: "/#countries" },
     { name: "Contact Us", path: "/contact" },
   ];
 
