@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock, Send, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -90,7 +91,7 @@ const Contact = () => {
       <Navbar />
 
       {/* Sub Page Banner */}
-      <section className="relative pt-24 h-[340px] md:h-[400px] overflow-hidden">
+      <section className="relative pt-24 h-[280px] md:h-[320px] overflow-hidden">
         <img
           src={contactBanner}
           alt="Contact Us - International Education Consultancy"
@@ -98,19 +99,26 @@ const Contact = () => {
         />
         <div className="absolute inset-0 bg-primary/70" />
         <div className="container-custom relative z-10 h-full flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-4">
+          <div className="text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-4"
+            >
               Contact Us
-            </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/90">
-              Get in touch with our expert counselors and start your journey to studying abroad.
-            </p>
-          </motion.div>
+            </motion.h1>
+            <motion.nav
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="flex items-center justify-center gap-2 text-primary-foreground/80 text-sm md:text-base"
+            >
+              <Link to="/" className="hover:text-secondary transition-colors">Home</Link>
+              <span>/</span>
+              <span className="text-secondary font-medium">Contact Us</span>
+            </motion.nav>
+          </div>
         </div>
       </section>
 
