@@ -111,12 +111,115 @@ const Contact = () => {
       <section className="section-padding bg-muted">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
+            {/* Branches & Contact Details - Left Side */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="flex flex-col gap-6"
+            >
+              <div className="bg-card rounded-3xl p-8 md:p-10 shadow-card border border-border/50">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8">
+                  Our Branches
+                </h2>
+                <div className="space-y-5">
+                  {branches.map((branch, index) => (
+                    <motion.div
+                      key={branch.location}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className={`flex items-start gap-4 p-5 rounded-2xl border ${
+                        branch.isHead
+                          ? "bg-primary/5 border-primary/20"
+                          : "bg-muted border-border/50"
+                      }`}
+                    >
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                        branch.isHead ? "gradient-golden" : "bg-primary/10"
+                      }`}>
+                        {branch.isHead ? (
+                          <Building2 className="w-6 h-6 text-secondary-foreground" />
+                        ) : (
+                          <MapPin className="w-6 h-6 text-primary" />
+                        )}
+                      </div>
+                      <div>
+                        {branch.isHead && (
+                          <span className="text-xs font-semibold uppercase tracking-wider text-secondary mb-1 block">
+                            Head Office
+                          </span>
+                        )}
+                        <p className="font-heading font-semibold text-foreground">
+                          📍 {branch.location}
+                        </p>
+                        {branch.address && (
+                          <p className="text-sm text-muted-foreground mt-1">{branch.address}</p>
+                        )}
+                        {!branch.isHead && (
+                          <p className="text-sm text-muted-foreground mt-1">We are also available here</p>
+                        )}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Contact Details */}
+              <div className="bg-card rounded-3xl p-8 md:p-10 shadow-card border border-border/50">
+                <h3 className="text-xl font-heading font-semibold text-foreground mb-6">
+                  Contact Details
+                </h3>
+                <ul className="space-y-4">
+                  <li className="flex items-center gap-3">
+                    <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
+                    <a href="tel:+918008249666" className="text-foreground hover:text-primary transition-colors">
+                      +91 80082 49666
+                    </a>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <a href="mailto:info@pravaasinternational.com" className="text-foreground hover:text-primary transition-colors block">
+                        info@pravaasinternational.com
+                      </a>
+                      <a href="mailto:admissions@pravaasinternational.com" className="text-foreground hover:text-primary transition-colors block">
+                        admissions@pravaasinternational.com
+                      </a>
+                    </div>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Clock className="w-5 h-5 text-secondary flex-shrink-0" />
+                    <span className="text-muted-foreground">Mon - Sat: 9:00 AM - 6:00 PM</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Quick Contact */}
+              <div className="bg-primary rounded-2xl p-6 text-primary-foreground">
+                <h3 className="font-heading font-semibold text-lg mb-2">
+                  Need Immediate Assistance?
+                </h3>
+                <p className="text-primary-foreground/80 mb-4">
+                  Call us directly for urgent queries or to book an appointment.
+                </p>
+                <a href="tel:+918008249666">
+                  <Button variant="secondary" className="w-full">
+                    <Phone className="w-5 h-5" />
+                    Call Now: +91 80082 49666
+                  </Button>
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Contact Form - Right Side */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="bg-card rounded-3xl p-8 md:p-10 shadow-card border border-border/50">
                 <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-2">
@@ -263,106 +366,6 @@ const Contact = () => {
                     )}
                   </Button>
                 </form>
-              </div>
-            </motion.div>
-
-            {/* Branches */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col gap-6"
-            >
-              <div className="bg-card rounded-3xl p-8 md:p-10 shadow-card border border-border/50">
-                <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8">
-                  Our Branches
-                </h2>
-
-                <div className="space-y-5">
-                  {branches.map((branch, index) => (
-                    <motion.div
-                      key={branch.location}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      className={`flex items-start gap-4 p-5 rounded-2xl border ${
-                        branch.isHead
-                          ? "bg-primary/5 border-primary/20"
-                          : "bg-muted border-border/50"
-                      }`}
-                    >
-                      <div
-                        className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
-                          branch.isHead ? "gradient-golden" : "bg-primary/10"
-                        }`}
-                      >
-                        {branch.isHead ? (
-                          <Building2 className="w-6 h-6 text-secondary-foreground" />
-                        ) : (
-                          <MapPin className="w-6 h-6 text-primary" />
-                        )}
-                      </div>
-                      <div>
-                        {branch.isHead && (
-                          <span className="text-xs font-semibold uppercase tracking-wider text-secondary mb-1 block">
-                            Head Office
-                          </span>
-                        )}
-                        <p className="font-heading font-semibold text-foreground">
-                          📍 {branch.location}
-                        </p>
-                        {branch.address && (
-                          <p className="text-sm text-muted-foreground mt-1">{branch.address}</p>
-                        )}
-                        {!branch.isHead && (
-                          <p className="text-sm text-muted-foreground mt-1">We are also available here</p>
-                        )}
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Contact Details */}
-              <div className="bg-card rounded-3xl p-8 md:p-10 shadow-card border border-border/50">
-                <h3 className="text-xl font-heading font-semibold text-foreground mb-6">
-                  Contact Details
-                </h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <Mail className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
-                    <div>
-                      <a href="mailto:info@pravaasinternational.com" className="text-foreground hover:text-primary transition-colors block">
-                        info@pravaasinternational.com
-                      </a>
-                      <a href="mailto:admissions@pravaasinternational.com" className="text-foreground hover:text-primary transition-colors block">
-                        admissions@pravaasinternational.com
-                      </a>
-                    </div>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-secondary flex-shrink-0" />
-                    <span className="text-muted-foreground">Mon - Sat: 9:00 AM - 6:00 PM</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Quick Contact */}
-              <div className="bg-primary rounded-2xl p-6 text-primary-foreground">
-                <h3 className="font-heading font-semibold text-lg mb-2">
-                  Need Immediate Assistance?
-                </h3>
-                <p className="text-primary-foreground/80 mb-4">
-                  Call us directly for urgent queries or to book an appointment.
-                </p>
-                <a href="tel:+1234567890">
-                  <Button variant="secondary" className="w-full">
-                    <Phone className="w-5 h-5" />
-                    Call Now
-                  </Button>
-                </a>
               </div>
             </motion.div>
           </div>
