@@ -138,13 +138,19 @@ const About = () => {
       </section>
 
       {/* 2. Vision & Mission */}
-      <section className="section-padding bg-muted">
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6 }}
+        className="section-padding bg-muted"
+      >
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
             <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
@@ -158,10 +164,10 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Vision */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, x: -50, rotateY: 8 }}
+              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: 0.15 }}
               className="bg-card rounded-2xl p-8 shadow-card border-2 border-secondary/30 hover:border-secondary/60 transition-colors"
             >
               <div className="w-14 h-14 rounded-xl gradient-golden flex items-center justify-center mb-5">
@@ -175,10 +181,10 @@ const About = () => {
 
             {/* Mission */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, x: 50, rotateY: -8 }}
+              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               className="bg-card rounded-2xl p-8 shadow-card border-2 border-secondary/30 hover:border-secondary/60 transition-colors"
             >
               <div className="w-14 h-14 rounded-xl gradient-golden flex items-center justify-center mb-5">
@@ -191,19 +197,25 @@ const About = () => {
             </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* 3. Founder Message */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <div className="max-w-5xl mx-auto bg-primary rounded-3xl overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7 }}
+            className="max-w-5xl mx-auto bg-primary rounded-3xl overflow-hidden"
+          >
             <div className="grid md:grid-cols-5 items-center">
               {/* Photo */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.7, rotate: -5 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 150 }}
                 className="md:col-span-2 flex justify-center p-8 md:p-10"
               >
                 <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-secondary shadow-golden">
@@ -217,10 +229,10 @@ const About = () => {
 
               {/* Message */}
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: 40, filter: "blur(4px)" }}
+                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.35 }}
                 className="md:col-span-3 p-8 md:p-10"
               >
                 <Quote className="w-10 h-10 text-secondary mb-4" />
@@ -238,18 +250,24 @@ const About = () => {
                 </div>
               </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 4. Why Pravaas? */}
-      <section className="section-padding bg-muted">
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5 }}
+        className="section-padding bg-muted"
+      >
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
             <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
@@ -264,10 +282,10 @@ const About = () => {
             {whyPravaasFeatures.map((feature, index) => (
               <motion.div
                 key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
                 className="bg-card rounded-2xl p-6 shadow-card border border-border/50 hover:shadow-golden hover:-translate-y-1 transition-all duration-300 group"
               >
                 <div className="w-12 h-12 rounded-xl gradient-golden flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -280,16 +298,22 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* 5. Testimonials */}
-      <section className="section-padding bg-accent/50 overflow-hidden">
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6 }}
+        className="section-padding bg-accent/50 overflow-hidden"
+      >
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
             <span className="inline-block text-secondary font-semibold text-sm uppercase tracking-wider mb-4">
@@ -363,7 +387,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <Footer />
     </div>
