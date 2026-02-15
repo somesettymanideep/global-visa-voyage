@@ -21,8 +21,8 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Facebook, href: "https://www.facebook.com/share/1AT1j1Ljys/", label: "Facebook" },
+    { icon: Instagram, href: "https://www.instagram.com/pravaasinternational?igsh=Z2lzMTNuaGt2NXVi", label: "Instagram" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
     { icon: Twitter, href: "#", label: "Twitter" },
   ];
@@ -87,21 +87,21 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
                 <span className="text-primary-foreground/80">
-                  123 Education Street, Suite 100<br />
-                  Business District, City 12345
+                  SS Complex, Above Hyundai Car showroom,<br />
+                  Vidyanagar, Bhadradri Kotthagudem,<br />
+                  Telangana, 507101
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
-                <a href="tel:+1234567890" className="text-primary-foreground/80 hover:text-secondary transition-colors">
-                  +1 234 567 890
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
-                <a href="mailto:info@pravaasinternational.com" className="text-primary-foreground/80 hover:text-secondary transition-colors">
-                  info@pravaasinternational.com
-                </a>
+              <li className="flex items-start gap-3">
+                <Mail className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
+                <div>
+                  <a href="mailto:info@pravaasinternational.com" className="text-primary-foreground/80 hover:text-secondary transition-colors block">
+                    info@pravaasinternational.com
+                  </a>
+                  <a href="mailto:admissions@pravaasinternational.com" className="text-primary-foreground/80 hover:text-secondary transition-colors block">
+                    admissions@pravaasinternational.com
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-secondary flex-shrink-0" />
