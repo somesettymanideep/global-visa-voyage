@@ -11,6 +11,7 @@ const branches = [
   {
     type: "Head Office",
     location: "Kothagudem, Khammam",
+    address: "SS Complex, Above Hyundai Car showroom, Vidyanagar, Bhadradri Kotthagudem, Telangana, 507101",
     isHead: true,
   },
   { location: "Hyderabad" },
@@ -313,6 +314,9 @@ const Contact = () => {
                         <p className="font-heading font-semibold text-foreground">
                           📍 {branch.location}
                         </p>
+                        {branch.address && (
+                          <p className="text-sm text-muted-foreground mt-1">{branch.address}</p>
+                        )}
                         {!branch.isHead && (
                           <p className="text-sm text-muted-foreground mt-1">We are also available here</p>
                         )}
@@ -320,6 +324,30 @@ const Contact = () => {
                     </motion.div>
                   ))}
                 </div>
+              </div>
+
+              {/* Contact Details */}
+              <div className="bg-card rounded-3xl p-8 md:p-10 shadow-card border border-border/50">
+                <h3 className="text-xl font-heading font-semibold text-foreground mb-6">
+                  Contact Details
+                </h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <a href="mailto:info@pravaasinternational.com" className="text-foreground hover:text-primary transition-colors block">
+                        info@pravaasinternational.com
+                      </a>
+                      <a href="mailto:admissions@pravaasinternational.com" className="text-foreground hover:text-primary transition-colors block">
+                        admissions@pravaasinternational.com
+                      </a>
+                    </div>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Clock className="w-5 h-5 text-secondary flex-shrink-0" />
+                    <span className="text-muted-foreground">Mon - Sat: 9:00 AM - 6:00 PM</span>
+                  </li>
+                </ul>
               </div>
 
               {/* Quick Contact */}
