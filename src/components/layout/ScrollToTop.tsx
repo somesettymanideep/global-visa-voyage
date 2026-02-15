@@ -29,7 +29,7 @@ const ScrollToTop = () => {
           className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-secondary text-secondary-foreground shadow-lg hover:brightness-110 transition-all duration-300 flex items-center justify-center hover:shadow-xl"
           aria-label="Scroll to top"
         >
-          <PlaneTakeoff className="w-6 h-6 -rotate-90" />
+          <PlaneTakeoff className="w-6 h-6" />
         </motion.button>
       )}
     </AnimatePresence>
