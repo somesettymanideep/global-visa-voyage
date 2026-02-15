@@ -370,6 +370,44 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Map Section */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+              Find Us Here
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Visit our head office in Kothagudem for a free consultation with our expert counselors.
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="rounded-3xl overflow-hidden shadow-card border border-border/50"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d951.1053845499807!2d80.61188776956023!3d17.535105898961096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a34173cefbfabe9%3A0x4bee78705a2d401b!2sPravaas%20International%20Education%20Consultancy!5e0!3m2!1sen!2sin!4v1771159686285!5m2!1sen!2sin"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Pravaas International Education Consultancy Location"
+            />
+          </motion.div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
