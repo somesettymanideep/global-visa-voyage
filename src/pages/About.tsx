@@ -94,32 +94,46 @@ const About = () => {
 
       {/* 1. Hero About Section */}
       <section className="relative pt-24 h-[400px] md:h-[480px] overflow-hidden">
-        <img
+        <motion.img
           src={aboutHero}
           alt="International campus students - About Pravaas Education"
           className="absolute inset-0 w-full h-full object-cover"
+          initial={{ scale: 1.15 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.4, ease: "easeOut" }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/75 to-primary/85" />
         <div className="container-custom relative z-10 h-full flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-4">
+          <div className="text-center max-w-3xl mx-auto">
+            <motion.h1
+              initial={{ opacity: 0, y: 40, filter: "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-4"
+            >
               About <span className="text-gradient">Pravaas Education</span>
-            </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/90 mb-8">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-lg md:text-xl text-primary-foreground/90 mb-8"
+            >
               Helping students achieve global dreams.
-            </p>
-            <Link to="/contact">
-              <Button variant="hero" size="xl" className="group">
-                Book Free Counseling
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </motion.div>
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.8, type: "spring", stiffness: 200 }}
+            >
+              <Link to="/contact">
+                <Button variant="hero" size="xl" className="group">
+                  Book Free Counseling
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -348,44 +362,6 @@ const About = () => {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* 6. CTA Section */}
-      <section className="py-16 md:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-secondary/80" />
-        <div className="container-custom relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-6">
-              Start Your Study Abroad Journey Today
-            </h2>
-            <p className="text-xl text-primary-foreground/80 mb-10">
-              Take the first step towards your dream university with expert guidance.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <Button variant="hero" size="xl" className="group">
-                  Book Free Counseling
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <a
-                href="https://wa.me/918008249666"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="outlineLight" size="xl">
-                  WhatsApp Us
-                </Button>
-              </a>
-            </div>
-          </motion.div>
         </div>
       </section>
 
