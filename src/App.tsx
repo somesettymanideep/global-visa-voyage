@@ -10,6 +10,7 @@ import Masters from "./pages/Masters";
 import MBBS from "./pages/MBBS";
 import NotFound from "./pages/NotFound";
 import SocialSidebar from "./components/layout/SocialSidebar";
+import ScrollToTop from "./components/layout/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <SocialSidebar />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/contact" element={<Contact />} />
