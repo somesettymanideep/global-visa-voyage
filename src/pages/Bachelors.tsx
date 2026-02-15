@@ -57,32 +57,33 @@ const Bachelors = () => {
     <div className="min-h-screen">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative pt-24 h-[400px] md:h-[500px] overflow-hidden">
+      {/* Hero Banner */}
+      <section className="relative pt-24 h-[280px] md:h-[320px] overflow-hidden">
         <img src={bachelorsHero} alt="Study Bachelors Abroad" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-primary/70" />
         <div className="container-custom relative z-10 h-full flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-4">
+          <div className="text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-primary-foreground mb-4"
+            >
               Study Bachelors Abroad
-            </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/90 mb-8">
-              Build your global career with top universities worldwide
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <Button variant="hero" size="xl">Apply Now <ArrowRight className="w-5 h-5" /></Button>
-              </Link>
-              <Link to="/contact">
-                <Button variant="outlineLight" size="xl">Free Counseling</Button>
-              </Link>
-            </div>
-          </motion.div>
+            </motion.h1>
+            <motion.nav
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="flex items-center justify-center gap-2 text-primary-foreground/80 text-sm md:text-base"
+            >
+              <Link to="/" className="hover:text-secondary transition-colors">Home</Link>
+              <span>/</span>
+              <span className="text-primary-foreground/60">Study Abroad</span>
+              <span>/</span>
+              <span className="text-secondary font-medium">Bachelors</span>
+            </motion.nav>
+          </div>
         </div>
       </section>
 
