@@ -72,7 +72,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Pravaas International" className="h-12 md:h-14 w-auto" />
+            <img src={logo} alt="Pravaas International" className="h-14 md:h-18 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
