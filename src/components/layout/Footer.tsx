@@ -117,7 +117,7 @@ const Footer = () => {
       {/* Copyright Bar */}
       <div className="bg-secondary">
         <div className="container-custom py-4 flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-secondary-foreground">
-          <p>&copy; {new Date().getFullYear()} Pravaas International. All rights reserved.</p>
+          <p>All Rights Reserved &copy; {new Date().getFullYear()} by Pravaas International Education Consultancy Developed By DigiNex</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-secondary-foreground/70 transition-colors">Terms of Service</a>
