@@ -36,8 +36,8 @@ const HeroSection = () => {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6"
             >
-              Your Gateway to{" "}
-              <span className="text-gradient">Global Education</span>
+              Your Dream of{" "}
+              <span className="text-gradient">Studying Abroad</span>
             </motion.h1>
 
             <motion.p
@@ -46,8 +46,7 @@ const HeroSection = () => {
               transition={{ delay: 0.4 }}
               className="text-lg md:text-xl text-primary-foreground/80 mb-8 max-w-xl"
             >
-              Transform your dreams into reality with expert guidance. We help students 
-              navigate the path to world-class universities in the UK, Australia, and beyond.
+              Why travel elsewhere when world-class study abroad services are now in your own city.
             </motion.p>
 
             <motion.div
