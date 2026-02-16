@@ -12,14 +12,13 @@ const Footer = () => {
   ];
 
   const services = [
-    "University Admissions",
-    "Visa Assistance",
-    "Test Preparation",
+    "Course Selection Guidance",
     "Career Counselling",
-    "Scholarship Guidance",
-    "Pre-Departure Support",
+    "Application & Document Assistance",
+    "Visa Processing & Interview Preparation",
+    "Scholarship & Financial Guidance",
+    "Pre-Departure & Post-Arrival Support",
     "Accommodation Assistance",
-    "Education Loan Guidance",
   ];
 
   const socialLinks = [
