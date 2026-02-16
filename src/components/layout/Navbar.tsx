@@ -135,7 +135,7 @@ const Navbar = () => {
           <div className="hidden lg:block">
             <Link to="/contact">
               <Button variant="golden" size="lg">
-                Book Free Consultation
+                Download Brochure
               </Button>
             </Link>
           </div>
@@ -205,7 +205,7 @@ const Navbar = () => {
                 )}
                 <Link to="/contact" onClick={() => setIsOpen(false)}>
                   <Button variant="golden" className="w-full mt-4">
-                    Book Free Consultation
+                    Download Brochure
                   </Button>
                 </Link>
               </div>
