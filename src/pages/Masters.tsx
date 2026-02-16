@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { BookOpen, Clock, DollarSign, Briefcase, Brain, TrendingUp, ArrowRight, CheckCircle, Award, Globe, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import mastersHero from "@/assets/masters-hero.jpg";
+import ctaMasters from "@/assets/cta-masters.jpg";
 
 import ukFlag from "@/assets/flags/uk.webp";
 import usaFlag from "@/assets/flags/usa.svg";
@@ -57,6 +59,10 @@ const careerOps = [
 ];
 
 const Masters = () => {
+  const ctaRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ctaRef, offset: ["start end", "end start"] });
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["-25%", "25%"]);
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -253,9 +259,12 @@ const Masters = () => {
       {/* Testimonials */}
       <TestimonialsSection />
 
-      {/* CTA */}
-      <section className="section-padding gradient-hero">
-        <div className="container-custom text-center">
+      <section ref={ctaRef} className="relative py-16 md:py-20 overflow-hidden">
+        <motion.div className="absolute inset-0 scale-110" style={{ y: backgroundY }}>
+          <img src={ctaMasters} alt="Graduate students in library" className="w-full h-full object-cover" />
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/75 to-primary/80" />
+        <div className="container-custom relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground mb-6">
               Start Your Masters Journey Today
