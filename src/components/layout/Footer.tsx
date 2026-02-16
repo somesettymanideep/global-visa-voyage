@@ -34,7 +34,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* About */}
           <div className="space-y-6">
-            <img src={logo} alt="Pravaas International" className="h-20 w-auto brightness-0 invert" />
+            <img src={logo} alt="Pravaas International" className="h-20 w-auto" />
             <p className="text-primary-foreground/80 leading-relaxed">
               Your trusted partner in achieving global education dreams. We guide students towards world-class universities with personalized support.
             </p>
