@@ -23,11 +23,11 @@ const whyStudy = [
 ];
 
 const destinations = [
-  { country: "United Kingdom", flag: ukFlag, duration: "3 Years", fees: "£12k–£25k/year", intakes: "Sep / Jan" },
-  { country: "United States", flag: usaFlag, duration: "4 Years", fees: "$20k–$50k/year", intakes: "Fall / Spring" },
-  { country: "Canada", flag: canadaFlag, duration: "4 Years", fees: "CAD 15k–30k/year", intakes: "Sep / Jan" },
-  { country: "Australia", flag: australiaFlag, duration: "3 Years", fees: "AUD 20k–40k/year", intakes: "Feb / Jul" },
-  { country: "Germany", flag: germanyFlag, duration: "3–4 Years", fees: "€0–€15k/year", intakes: "Oct / Apr" },
+  { country: "United Kingdom", flag: ukFlag, duration: "3 Years", intakes: "Sep / Jan" },
+  { country: "United States", flag: usaFlag, duration: "4 Years", intakes: "Fall / Spring" },
+  { country: "Canada", flag: canadaFlag, duration: "4 Years", intakes: "Sep / Jan" },
+  { country: "Australia", flag: australiaFlag, duration: "3 Years", intakes: "Feb / Jul" },
+  { country: "Germany", flag: germanyFlag, duration: "3–4 Years", intakes: "Oct / Apr" },
 ];
 
 const topCourses = [
@@ -141,14 +141,10 @@ const Bachelors = () => {
                     <img src={dest.flag} alt={dest.country} className="w-10 h-7 object-cover rounded" />
                     <h3 className="font-heading font-semibold text-foreground text-lg">{dest.country}</h3>
                   </div>
-                  <div className="space-y-2 text-sm text-muted-foreground mb-4">
+                  <div className="space-y-2 text-sm text-muted-foreground">
                     <p><span className="font-medium text-foreground">Duration:</span> {dest.duration}</p>
-                    <p><span className="font-medium text-foreground">Tuition Fees:</span> {dest.fees}</p>
                     <p><span className="font-medium text-foreground">Intakes:</span> {dest.intakes}</p>
                   </div>
-                  <Link to="/contact">
-                    <Button variant="golden" size="sm" className="w-full">Apply Now</Button>
-                  </Link>
                 </div>
               </motion.div>
             ))}

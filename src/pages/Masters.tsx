@@ -29,10 +29,10 @@ const programs = [
 ];
 
 const destinations = [
-  { country: "United Kingdom", flag: ukFlag, duration: "1 Year", fees: "£15k–£25k", intakes: "Sep / Jan" },
-  { country: "United States", flag: usaFlag, duration: "2 Years", fees: "$20k–$40k", intakes: "Fall / Spring" },
-  { country: "Canada", flag: canadaFlag, duration: "1–2 Years", fees: "CAD 15k–30k", intakes: "Jan / Sep" },
-  { country: "Australia", flag: australiaFlag, duration: "1.5–2 Years", fees: "AUD 25k–40k", intakes: "Feb / Jul" },
+  { country: "United Kingdom", flag: ukFlag, duration: "1 Year", intakes: "Sep / Jan" },
+  { country: "United States", flag: usaFlag, duration: "2 Years", intakes: "Fall / Spring" },
+  { country: "Canada", flag: canadaFlag, duration: "1–2 Years", intakes: "Jan / Sep" },
+  { country: "Australia", flag: australiaFlag, duration: "1.5–2 Years", intakes: "Feb / Jul" },
 ];
 
 const scholarships = [
@@ -171,9 +171,7 @@ const Masters = () => {
                   <tr className="gradient-primary text-primary-foreground">
                     <th className="text-left p-4 font-heading">Country</th>
                     <th className="text-left p-4 font-heading">Duration</th>
-                    <th className="text-left p-4 font-heading">Avg Fees</th>
-                    <th className="text-left p-4 font-heading">Intakes</th>
-                    <th className="text-center p-4 font-heading">Action</th>
+                     <th className="text-left p-4 font-heading">Intakes</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -186,13 +184,7 @@ const Masters = () => {
                         </div>
                       </td>
                       <td className="p-4 text-muted-foreground">{dest.duration}</td>
-                      <td className="p-4 text-muted-foreground">{dest.fees}</td>
-                      <td className="p-4 text-muted-foreground">{dest.intakes}</td>
-                      <td className="p-4 text-center">
-                        <Link to="/contact">
-                          <Button variant="golden" size="sm">Apply</Button>
-                        </Link>
-                      </td>
+                       <td className="p-4 text-muted-foreground">{dest.intakes}</td>
                     </tr>
                   ))}
                 </tbody>

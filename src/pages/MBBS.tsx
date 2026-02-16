@@ -17,13 +17,13 @@ const whyStudy = [
 ];
 
 const countries = [
-  { country: "🇰🇬 Kyrgyzstan", duration: "5+1 Years", fees: "$3,000–$5,000/yr", recognition: "WHO, NMC" },
-  { country: "🇰🇿 Kazakhstan", duration: "5+1 Years", fees: "$4,000–$6,000/yr", recognition: "WHO, NMC" },
-  { country: "🇺🇿 Uzbekistan", duration: "5+1 Years", fees: "$3,500–$5,500/yr", recognition: "WHO, NMC" },
-  { country: "🇷🇺 Russia", duration: "6 Years", fees: "$4,000–$8,000/yr", recognition: "WHO, NMC" },
-  { country: "🇬🇪 Georgia", duration: "6 Years", fees: "$5,000–$8,000/yr", recognition: "WHO, NMC" },
-  { country: "🇷🇸 Serbia", duration: "6 Years", fees: "$5,000–$7,000/yr", recognition: "WHO, NMC" },
-  { country: "🇧🇦 Bosnia", duration: "6 Years", fees: "$4,500–$7,000/yr", recognition: "WHO, NMC" },
+  { country: "🇰🇬 Kyrgyzstan", duration: "5+1 Years", recognition: "WHO, NMC" },
+  { country: "🇰🇿 Kazakhstan", duration: "5+1 Years", recognition: "WHO, NMC" },
+  { country: "🇺🇿 Uzbekistan", duration: "5+1 Years", recognition: "WHO, NMC" },
+  { country: "🇷🇺 Russia", duration: "6 Years", recognition: "WHO, NMC" },
+  { country: "🇬🇪 Georgia", duration: "6 Years", recognition: "WHO, NMC" },
+  { country: "🇷🇸 Serbia", duration: "6 Years", recognition: "WHO, NMC" },
+  { country: "🇧🇦 Bosnia", duration: "6 Years", recognition: "WHO, NMC" },
 ];
 
 const eligibility = [
@@ -142,14 +142,10 @@ const MBBS = () => {
                 className="bg-card rounded-2xl p-6 shadow-card border border-border/50 hover:-translate-y-1 transition-transform"
               >
                 <h3 className="font-heading font-semibold text-foreground text-xl mb-4">{dest.country}</h3>
-                <div className="space-y-2 text-sm text-muted-foreground mb-4">
+                <div className="space-y-2 text-sm text-muted-foreground">
                   <p><span className="font-medium text-foreground">Duration:</span> {dest.duration}</p>
-                  <p><span className="font-medium text-foreground">Fees:</span> {dest.fees}</p>
                   <p><span className="font-medium text-foreground">Recognition:</span> {dest.recognition}</p>
                 </div>
-                <Link to="/contact">
-                  <Button variant="golden" size="sm" className="w-full">Apply Now</Button>
-                </Link>
               </motion.div>
             ))}
           </div>
